@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b12">
+  <meta name="description" content="AI Chat Highlighter helps you mark important parts of AI conversations so useful ideas are easier to spot again.">
+  <title>AI Chat Highlighter — Keep the useful parts</title>
+  <style>
+    :root{color-scheme:dark;--bg:#090b12;--panel:#111522;--line:#252b3d;--muted:#a4abc0;--text:#f5f7ff;--violet:#9b8cff;--cyan:#7de5dc;--yellow:#ffe18a}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% 0%,#24204a 0,transparent 36%),var(--bg);color:var(--text);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    a{color:inherit}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}.nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:750;letter-spacing:-.03em}.logo{width:39px;height:39px;border-radius:13px;background:linear-gradient(135deg,var(--violet),var(--cyan));display:grid;place-items:center;color:#101321;font-size:20px;font-weight:900;box-shadow:0 8px 28px #9b8cff35}.navlinks{display:flex;gap:24px;align-items:center;color:var(--muted);font-size:14px}.navlinks a{text-decoration:none}.navlinks a:hover{color:white}
+    .hero{padding:76px 0 72px;display:grid;grid-template-columns:1.04fr .96fr;gap:56px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #393451;background:#17152a;color:#d4ceff;padding:7px 12px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}h1{font-size:clamp(42px,6vw,72px);line-height:1.02;letter-spacing:-.065em;margin:22px 0 22px;max-width:700px}h1 span{background:linear-gradient(100deg,#c4baff 10%,#7de5dc 95%);background-clip:text;-webkit-background-clip:text;color:transparent}.lead{color:var(--muted);font-size:18px;line-height:1.75;max-width:570px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 17px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 18px;border-radius:12px;text-decoration:none;font-weight:750;font-size:14px;transition:transform .2s,filter .2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.primary{background:linear-gradient(110deg,#c2b5ff,#8eece1);color:#10121c;box-shadow:0 12px 35px #9b8cff24}.secondary{border:1px solid #353b50;background:#141827}.note{font-size:12px;color:#858da5}
+    .mock{position:relative;padding:18px;border:1px solid #34334b;border-radius:22px;background:linear-gradient(145deg,#171a2a,#0f121c);box-shadow:0 30px 90px #0008;transform:rotate(1deg)}.mock:before{content:"";position:absolute;inset:-1px;border-radius:22px;background:linear-gradient(135deg,#9b8cff45,transparent 38%,#7de5dc28);pointer-events:none}.windowbar{display:flex;align-items:center;gap:7px;padding:2px 2px 16px;border-bottom:1px solid #292e40;color:#8e96af;font-size:12px}.ball{width:8px;height:8px;border-radius:50%;background:#4a5065}.windowtitle{margin-left:auto;margin-right:auto}.chat{padding:22px 4px 4px}.chatlabel{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#818aa4;font-weight:800;margin-bottom:12px}.bubble{border:1px solid #292f42;background:#171c2b;border-radius:13px;padding:14px 15px;color:#c8cee0;font-size:13px;margin-bottom:13px}.highlight{background:#443b1b;border-color:#71602b;color:#fff0b4;box-shadow:inset 3px 0 #ffe18a}.highlight.violet{background:#2d2850;border-color:#4b427d;color:#ded7ff;box-shadow:inset 3px 0 #a89aff}.tag{display:inline-block;border:1px solid #5d5230;background:#302a1a;color:#ffe18a;border-radius:6px;font-size:10px;padding:3px 7px;margin-bottom:8px}.floating{position:absolute;right:-15px;bottom:32px;background:#101624;border:1px solid #343c50;border-radius:12px;padding:12px 15px;font-size:12px;box-shadow:0 15px 35px #0007}.floating strong{display:block;color:var(--cyan);font-size:13px}
+    .trustline{border-top:1px solid #202538;border-bottom:1px solid #202538;padding:20px 0;color:#a0a8bf;font-size:13px}.trustinner{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}.trustinner span{display:flex;align-items:center;gap:9px}.check{color:var(--cyan);font-weight:900}
+    section{padding:82px 0}.sectionhead{text-align:center;max-width:660px;margin:0 auto 38px}.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--cyan);font-weight:800}.sectionhead h2{font-size:clamp(30px,4vw,45px);line-height:1.12;letter-spacing:-.045em;margin:12px 0}.sectionhead p{color:var(--muted);margin:0}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.feature{padding:24px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(150deg,#151a29,#0e111a)}.featureicon{height:43px;width:43px;border-radius:12px;background:#24223d;color:#c4baff;display:grid;place-items:center;font-size:21px}.feature h3{margin:18px 0 7px;font-size:17px}.feature p{margin:0;color:var(--muted);font-size:14px;line-height:1.75}
+    .how{background:#0e111b;border-top:1px solid #202538;border-bottom:1px solid #202538}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}.stepnum{color:#8276d8;font-size:12px;font-weight:850;letter-spacing:.12em}.steps h3{font-size:18px;margin:9px 0}.steps p{color:var(--muted);font-size:14px;margin:0}.cta{padding:66px 24px;border:1px solid #3a3558;border-radius:24px;background:radial-gradient(ellipse at 50% 0%,#39305e 0,transparent 65%),#121624;text-align:center}.cta h2{font-size:clamp(30px,4vw,46px);line-height:1.1;letter-spacing:-.045em;margin:0 0 14px}.cta p{color:var(--muted);max-width:560px;margin:0 auto}.cta .actions{justify-content:center}.fineprint{max-width:700px;margin:24px auto 0;color:#838ba1;font-size:12px}.footer{padding:26px 0 34px;border-top:1px solid #202538;color:#838ba1;font-size:12px}.footerinner{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.footer a{color:#c5cbe0;text-decoration:none}
+    @media(max-width:820px){.hero{grid-template-columns:1fr;gap:38px;padding-top:48px}.mock{max-width:590px;width:100%;margin:auto}.features{grid-template-columns:1fr 1fr}.steps{gap:18px}.navlinks{gap:13px}}@media(max-width:560px){.wrap{width:min(100% - 28px,1120px)}.nav{height:70px}.navlinks a:not(.navcta){display:none}.hero{padding:42px 0 48px}.lead{font-size:16px}.features,.steps{grid-template-columns:1fr}section{padding:60px 0}.mock{padding:13px}.floating{right:-4px;bottom:12px}.trustinner{display:grid;grid-template-columns:1fr 1fr}.cta{padding:48px 18px}}
+  </style>
+</head>
+<body>
+  <header class="wrap nav">
+    <a class="brand" href="#" aria-label="AI Chat Highlighter home"><span class="logo">✳</span><span>AI Chat Highlighter</span></a>
+    <nav class="navlinks" aria-label="Main navigation"><a href="#features">Features</a><a href="#how">How it works</a><a href="https://github.com/theshashanksharma/ai-chat-highlighter" target="_blank" rel="noreferrer">GitHub ↗</a></nav>
+  </header>
+  <main>
+    <div class="wrap hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> A little more signal. A lot less scrolling.</div>
+        <h1>Keep the useful parts of your <span>AI conversations.</span></h1>
+        <p class="lead">Spot an idea worth keeping? Highlight the important bits of your AI chats so key insights are easier to notice and return to.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://raw.githubusercontent.com/theshashanksharma/ai-chat-highlighter/main/AI-Chat-Highlighter-Cloud-v0.6.9.zip">↓ Download for Chrome</a>
+          <a class="btn secondary" href="https://github.com/theshashanksharma/ai-chat-highlighter" target="_blank" rel="noreferrer">Explore on GitHub ↗</a>
+        </div>
+        <p class="note">Direct ZIP download · Manual installation required · Not yet listed on the Chrome Web Store</p>
+      </div>
+      <div class="mock" aria-label="Illustration of an AI conversation with highlighted passages">
+        <div class="windowbar"><span class="ball"></span><span class="ball"></span><span class="ball"></span><span class="windowtitle">AI conversation · saved insight</span></div>
+        <div class="chat">
+          <div class="chatlabel">A conversation worth keeping</div>
+          <div class="bubble">Can you explain the main idea in a simple way?</div>
+          <div class="bubble highlight"><span class="tag">KEY TAKEAWAY</span><br>Small, consistent actions compound over time. Focus on a repeatable system, not just a big goal.</div>
+          <div class="bubble">Can you give me an example I can use today?</div>
+          <div class="bubble highlight violet">Choose one small action, make it easy to repeat, and review your progress each week.</div>
+        </div>
+        <div class="floating"><strong>✦ Insight highlighted</strong>Keep the signal. Skip the scroll.</div>
+      </div>
+    </div>
+    <div class="trustline"><div class="wrap trustinner"><span><b class="check">✓</b> Built for AI-chat workflows</span><span><b class="check">✓</b> Open project repository</span><span><b class="check">✓</b> Free direct download</span></div></div>
+    <section id="features">
+      <div class="wrap">
+        <div class="sectionhead"><div class="kicker">Less searching. More finding.</div><h2>Your best ideas shouldn't disappear in a long chat.</h2><p>AI conversations can get long fast. Highlighting helps bring your attention back to the parts that matter.</p></div>
+        <div class="features">
+          <article class="feature"><div class="featureicon">✳</div><h3>Make key ideas stand out</h3><p>Visually mark useful passages so important points are easier to pick out from the rest of a conversation.</p></article>
+          <article class="feature"><div class="featureicon">⌕</div><h3>Reduce the re-reading</h3><p>Spend less time scanning a long response when you're looking for the insight you noticed earlier.</p></article>
+          <article class="feature"><div class="featureicon">↗</div><h3>Keep your workflow moving</h3><p>Bring a little more structure to research, learning, brainstorming, and everyday work with AI chats.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="how" id="how">
+      <div class="wrap">
+        <div class="sectionhead"><div class="kicker">Get started</div><h2>From download to first highlight.</h2><p>The current version is distributed directly, so installation takes a few manual steps.</p></div>
+        <div class="steps">
+          <article><div class="stepnum">STEP 01</div><h3>Download the ZIP</h3><p>Use the download link above to get the current package from this project's GitHub repository.</p></article>
+          <article><div class="stepnum">STEP 02</div><h3>Load it in Chrome</h3><p>Extract the ZIP, visit <code>chrome://extensions</code>, turn on Developer mode, then choose “Load unpacked” and select the folder containing <code>manifest.json</code>.</p></article>
+          <article><div class="stepnum">STEP 03</div><h3>Try your workflow</h3><p>Open a supported AI chat and test the extension. If anything looks off, report it through the GitHub repository.</p></article>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="wrap"><div class="cta"><div class="kicker">Try it out</div><h2>Find the signal in your AI chats.</h2><p>Get AI Chat Highlighter and see if it fits the way you learn, research, and think with AI.</p><div class="actions"><a class="btn primary" href="https://raw.githubusercontent.com/theshashanksharma/ai-chat-highlighter/main/AI-Chat-Highlighter-Cloud-v0.6.9.zip">↓ Get the extension ZIP</a><a class="btn secondary" href="https://github.com/theshashanksharma/ai-chat-highlighter/issues" target="_blank" rel="noreferrer">Give feedback ↗</a></div><p class="fineprint">This is an independent project and is not affiliated with or endorsed by Google, OpenAI, or other AI service providers. Installation is manual while the extension is not available in the Chrome Web Store.</p></div></div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footerinner"><span>© <span id="year">2026</span> AI Chat Highlighter</span><span><a href="https://github.com/theshashanksharma/ai-chat-highlighter" target="_blank" rel="noreferrer">GitHub repository</a> · Made to keep useful ideas close.</span></div></footer>
+</body>
+</html>
